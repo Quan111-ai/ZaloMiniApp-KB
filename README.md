@@ -15,7 +15,10 @@
 > Một ứng dụng Zalo Mini App cao cấp, hiện đại và sang trọng (Editorial Luxury Light theme) được tích hợp các công nghệ WebGL (Three.js), hiệu ứng chuyển động mượt mà (Motion/React) và Zalo Mini Program SDK.
 
 <p align="center">
-  <img src="mockup.png" alt="KB Zalo Mini App Mockup" width="380" />
+  <img src="screenshot_home.png" alt="Trang Chủ" width="230" />
+  <img src="screenshot_services.png" alt="Dịch Vụ" width="230" />
+  <img src="screenshot_products.png" alt="Sản Phẩm" width="230" />
+  <img src="screenshot_contact.png" alt="Liên Hệ" width="230" />
 </p>
 
 ---
