@@ -1,5 +1,17 @@
 # 🌟 KB Zalo Mini App (ZaloMiniApp-KB)
 
+<p align="center">
+  <pre>
+  🔴      🔴    ⚫⚫⚫⚫⚫⚫  
+  🔴    🔴      ⚫          ⚫ 
+  🔴  🔴        ⚫⚫⚫⚫⚫⚫  
+  🔴🔴          ⚫          ⚫ 
+  🔴  🔴        ⚫          ⚫ 
+  🔴    🔴      ⚫          ⚫ 
+  🔴      🔴    ⚫⚫⚫⚫⚫⚫  
+  </pre>
+</p>
+
 > Một ứng dụng Zalo Mini App cao cấp, hiện đại và sang trọng (Editorial Luxury Light theme) được tích hợp các công nghệ WebGL (Three.js), hiệu ứng chuyển động mượt mà (Motion/React) và Zalo Mini Program SDK.
 
 ---
