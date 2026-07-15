@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, "Cascadia Code", Consolas, monospace;
+}
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  --font-size-xs: 0.85rem;
+  --font-size-sm: 0.96rem;
+  --font-size-base: 1.06rem;
+  --font-size-lg: 1.22rem;
+  --font-size-xl: 1.42rem;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+html {
+  font-size: 120%; /* Global typography upscale — bumped +2-3px for readability */
+  background-color: #0a0a0a; /* Dark background matching Zalo statusbar to prevent white bounce gaps */
+  overscroll-behavior-y: none !important;
+}
+
+/* Global Reset & Base Styling */
+body {
+  background-color: #0a0a0a; /* Dark background matching Zalo statusbar to prevent white bounce gaps */
+  color: #242220; /* Luxury deep charcoal-brown text */
+  font-family: var(--font-sans);
+  font-size: 1.15rem; /* +2px upscale for readability */
+  font-weight: 400; /* Standard elegant weight */
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none !important;
+}
+
+#app, #zalo-webview-container, .min-h-screen {
+  overscroll-behavior-y: none !important;
+}
+
+/* Override compiled arbitrary font size utility classes — each bumped +2-3px for readability on mobile viewports */
+.text-\[7px\] { font-size: 13px !important; }
+.text-\[7\.5px\] { font-size: 13.5px !important; }
+.text-\[8px\] { font-size: 14px !important; }
+.text-\[8\.5px\] { font-size: 14.5px !important; }
+.text-\[9px\] { font-size: 15.5px !important; }
+.text-\[9\.5px\] { font-size: 16px !important; }
+.text-\[10px\] { font-size: 16.5px !important; }
+.text-\[10\.5px\] { font-size: 17px !important; }
+.text-\[11px\] { font-size: 17.5px !important; }
+.text-\[11\.5px\] { font-size: 18px !important; }
+.text-\[12px\] { font-size: 18.5px !important; }
+.text-\[12\.5px\] { font-size: 19px !important; }
+.text-\[13px\] { font-size: 20px !important; }
+.text-\[14px\] { font-size: 21px !important; }
+.text-\[15px\] { font-size: 22px !important; }
+.text-\[16px\] { font-size: 23px !important; }
+
+/* Custom Hide Scrollbar Utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom animations and transition classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes laserSweep {
+  0% {
+    left: -30%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -30%;
+  }
+}
+
+@keyframes signalPulse {
+  0%, 100% {
+    height: 3px;
+  }
+  50% {
+    height: 14px;
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-laser {
+  animation: laserSweep 6s ease-in-out infinite;
+}
+
+.animate-signal-1 {
+  animation: signalPulse 1.2s ease-in-out infinite;
+}
+
+.animate-signal-2 {
+  animation: signalPulse 0.8s ease-in-out infinite 0.2s;
+}
+
+.animate-signal-3 {
+  animation: signalPulse 1s ease-in-out infinite 0.4s;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Glow utilities for premium red accents */
+.glow-on-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-on-hover:hover {
+  box-shadow: 0 8px 24px rgba(158, 26, 30, 0.08);
+  border-color: rgba(158, 26, 30, 0.25) !important;
+}
+
+.glow-active {
+  box-shadow: 0 8px 24px rgba(158, 26, 30, 0.12);
+  border-color: rgba(158, 26, 30, 0.35) !important;
+}
+
+/* Custom device container shadow */
+.zalo-phone-shadow {
+  box-shadow: 0 30px 65px -15px rgba(197, 168, 128, 0.12), 0 10px 25px -10px rgba(0, 0, 0, 0.04);
+}
+
+/* Epic scale-up and fade-out for Welcome page overlay */
+@keyframes epicFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(15px);
+  }
+}
+.animate-epic-fadeout {
+  animation: epicFadeOut 0.9s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+/* Red/Gold laser sweep animation running in the bottom navigation footer bar */
+@keyframes sweepRedLine {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(250%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+.animate-sweep-red-line {
+  animation: sweepRedLine 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Global Light Theme Caustic Gradient Leakages */
+.kb-mesh-ambient-glow {
+  background-image: 
+    radial-gradient(at 100% 0%, rgba(197, 168, 128, 0.09) 0px, transparent 45%),
+    radial-gradient(at 0% 100%, rgba(158, 26, 30, 0.05) 0px, transparent 45%) !important;
+}
+
+/* Custom High-End Gold Scrollbars */
+::-webkit-scrollbar {
+  width: 3.5px !important;
+  height: 3.5px !important;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 128, 0.22) !important;
+  border-radius: 99px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(158, 26, 30, 0.38) !important;
+}
+
+/* Glowing Crimson Ruby List Bullets */
+ul.list-disc {
+  list-style: none !important;
+  padding-left: 0.1rem !important;
+}
+ul.list-disc li {
+  position: relative !important;
+  padding-left: 0.95rem !important;
+}
+ul.list-disc li::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.45em !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background-color: #9e1a1e !important;
+  box-shadow: 0 0 5px #9e1a1e !important;
+}
+
+/* Premium Typography Details */
+.font-display {
+  text-shadow: 0 1px 2px rgba(197, 168, 128, 0.06) !important;
+  letter-spacing: normal !important;
+}
+h1.font-display, h2.font-display, h3.font-display {
+  letter-spacing: normal !important;
+  text-shadow: 0 1px 3px rgba(197, 168, 128, 0.1) !important;
+}
+
+/* Neural flow pulse and branching animation styles */
+@keyframes neural-pulse-flow {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow-pulse-travel {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+}
+
+@keyframes junction-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 77, 90, 0.8));
+  }
+}
+
+@keyframes node-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(158, 26, 30, 0.3), 0 0 20px rgba(158, 26, 30, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(158, 26, 30, 0.6), 0 0 35px rgba(158, 26, 30, 0.2);
+  }
+}
+
+.animate-neural-pulse {
+  stroke-dasharray: 8, 22;
+  animation: neural-pulse-flow 3s linear infinite;
+}
+
+.animate-glow-travel {
+  stroke-dasharray: 15, 25;
+  animation: glow-pulse-travel 2.5s ease-in-out infinite;
+}
+
+.animate-junction-pulse {
+  animation: junction-pulse 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-node-glow {
+  animation: node-glow 2.5s ease-in-out infinite;
+}
+
+/* Testimonial marquee auto-scroll */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

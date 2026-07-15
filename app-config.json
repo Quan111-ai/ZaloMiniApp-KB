@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "KB",
+    "headerColor": "#0a0a0a",
+    "statusBarColor": "#0a0a0a",
+    "textColor": "white",
+    "statusBar": "light-content",
+    "actionBarHidden": true
+  },
+  "pages": [
+    "pages/index",
+    "pages/services",
+    "pages/inventory",
+    "pages/contact"
+  ],
+  "list": [
+    {
+      "page": "pages/index",
+      "tab": "Trang Chủ",
+      "icon": "home"
+    },
+    {
+      "page": "pages/services",
+      "tab": "Dịch Vụ",
+      "icon": "grid"
+    },
+    {
+      "page": "pages/inventory",
+      "tab": "Sản Phẩm",
+      "icon": "shop"
+    },
+    {
+      "page": "pages/contact",
+      "tab": "Liên Hệ",
+      "icon": "phone"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix: KB Zalo Mini App",
+  "description": "Zalo Mini App chuyên nghiệp cho công ty công nghệ KB - Kiến tạo mạng lưới số",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
